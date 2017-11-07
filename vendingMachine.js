@@ -11,6 +11,8 @@ VendingMachine.prototype.coinIdentifier = function(weight, diameter){
 		return "nickel";
 	} else if (weight === 2.268 && diameter === 0.705){
 		return "dime";
+	} else if (weight === 5.67 && diameter === 0.955){
+		return "quarter";
 	}
 };
 

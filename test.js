@@ -23,6 +23,10 @@ describe('Vending Machine Coding Kata', ()=>{
 				expect(vendingMachine.coinIdentifier(2.268, 0.705)).to.equal('dime')
 			});
 
+			it('should recognize quarters by weight (5.67 grams) and diameter (0.955 inches)', ()=>{
+				expect(vendingMachine.coinIdentifier(5.67, 0.955)).to.equal('quarter')
+			});
+
 		});
 	});
 });
