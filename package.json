@@ -1,0 +1,27 @@
+{
+  "name": "vending-machine",
+  "version": "1.0.0",
+  "description": "Coding Kata for TDD",
+  "main": "vendingMachine.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbatty7/vending-machine.git"
+  },
+  "keywords": [
+    "Vending",
+    "machine"
+  ],
+  "author": "Tim Batty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbatty7/vending-machine/issues"
+  },
+  "homepage": "https://github.com/tbatty7/vending-machine#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
