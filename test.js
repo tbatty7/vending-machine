@@ -10,16 +10,19 @@ describe('Vending Machine Coding Kata', ()=>{
 			});
 		});
 
-		describe('Insert Coin Functionality Tests', ()=>{
-
-			it('should evaluate the value of nickels, dimes and quarters', ()=>{
+		describe('coinIdentifier() Functionality Tests', ()=>{
+			it('should return the value of nickels, dimes and quarters', ()=>{
 				expect(vendingMachine.coinIdentifier(5, 0.835)).to.equal(5);
 				expect(vendingMachine.coinIdentifier(2.268, 0.705)).to.equal(10);
 				expect(vendingMachine.coinIdentifier(5.67, 0.955)).to.equal(25);
 			});
 
-			
-
+			it('should return undefined when pennies or any other coin is inserted', ()=>{
+				expect(vendingMachine.coinIdentifier(2.5, 0.75)).to.be.an('undefined');
+				expect(vendingMachine.coinIdentifier(5, 0.22)).to.be.an('undefined');
+			});
 		});
+
+
 	});
 });
