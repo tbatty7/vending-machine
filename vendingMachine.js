@@ -1,6 +1,8 @@
-var VendingMachine = function(){};
+var VendingMachine = function(){
+	this.display = 'Insert Coin';
+};
 
-VendingMachine.prototype.display = function(){
+VendingMachine.prototype.resetDisplay = function(){
 	return "Insert Coin";
 };
 
@@ -13,5 +15,13 @@ VendingMachine.prototype.coinIdentifier = function(weight, diameter){
 		return 25;
 	} 
 };
+
+VendingMachine.prototype.coinHandler = function(weight, diameter){
+	var coinValue = this.coinIdentifier(weight, diameter);
+	if (coinValue && (typeof this.display === 'string')){
+		this.display = coinValue;
+	} 
+};
+
 
 module.exports = new VendingMachine();

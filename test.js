@@ -6,7 +6,7 @@ describe('Vending Machine Coding Kata', ()=>{
 
 		describe('Vending Machine Display Tests', ()=>{
 			it('should display "Insert Coin" as the default setting', ()=>{
-				expect(vendingMachine.display()).to.equal('Insert Coin');
+				expect(vendingMachine.resetDisplay()).to.equal('Insert Coin');
 			});
 		});
 
@@ -18,11 +18,16 @@ describe('Vending Machine Coding Kata', ()=>{
 			});
 
 			it('should return undefined when pennies or any other coin is inserted', ()=>{
-				expect(vendingMachine.coinIdentifier(2.5, 0.75)).to.be.an('undefined');
-				expect(vendingMachine.coinIdentifier(5, 0.22)).to.be.an('undefined');
+				expect(vendingMachine.coinIdentifier(2.5, 0.75)).to.be.undefined;
+				expect(vendingMachine.coinIdentifier(5, 0.22)).to.be.undefined;
 			});
 		});
 
-
+		describe('coinHandler() Functionality Tests', ()=>{
+			it('should update display with new value based on amount of each coin', ()=>{
+				vendingMachine.coinHandler(5, 0.835);
+				expect(vendingMachine.display).to.equal(5);
+			});
+		});
 	});
 });
