@@ -9,6 +9,12 @@ describe('Vending Machine Coding Kata', ()=>{
 				expect(vendingMachine.display).to.equal('INSERT COIN');
 			});
 
+			it('should reset display to "INSERT COIN" when resetDisplay() is called', ()=>{
+				vendingMachine.coinVerifier(5, 0.835);
+				vendingMachine.resetDisplay();
+				expect(vendingMachine.display).to.equal('INSERT COIN');
+			})
+
 		});
 
 		describe('coinIdentifier() Functionality Tests', ()=>{
@@ -27,22 +33,22 @@ describe('Vending Machine Coding Kata', ()=>{
 		describe('coinHandler() Functionality Tests', ()=>{
 			it('should update display with new value based on amount of each coin', ()=>{
 				vendingMachine.resetDisplay();
-				vendingMachine.coinHandler(5, 0.835);
+				vendingMachine.coinVerifier(5, 0.835);
 				expect(vendingMachine.display).to.equal(5);
 			});
 			
 			it('should update display with new total based on amount of each consecutive coin', ()=>{
 				vendingMachine.resetDisplay();
-				vendingMachine.coinHandler(5, 0.835);
+				vendingMachine.coinVerifier(5, 0.835);
 				expect(vendingMachine.display).to.equal(5);
-				vendingMachine.coinHandler(2.268, 0.705);
+				vendingMachine.coinVerifier(2.268, 0.705);
 				expect(vendingMachine.display).to.equal(15);
-				vendingMachine.coinHandler(5.67, 0.955);
+				vendingMachine.coinVerifier(5.67, 0.955);
 				expect(vendingMachine.display).to.equal(40);
 			});
 
 			it('should return "send coin to coin return" when coin is invalid', ()=>{
-				expect(vendingMachine.coinHandler(2.5, 0.75)).to.equal('send coin to coin return');
+				expect(vendingMachine.coinVerifier(2.5, 0.75)).to.equal('send coin to coin return');
 			});
 		});
 	});

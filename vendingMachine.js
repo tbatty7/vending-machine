@@ -16,7 +16,7 @@ VendingMachine.prototype.coinIdentifier = function(weight, diameter){
 	} 
 };
 
-VendingMachine.prototype.coinHandler = function(weight, diameter){
+VendingMachine.prototype.coinVerifier = function(weight, diameter){
 	var coinValue = this.coinIdentifier(weight, diameter);
 	if (coinValue && (typeof this.display === 'string')){
 		this.display = coinValue;
