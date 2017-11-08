@@ -22,6 +22,8 @@ VendingMachine.prototype.coinHandler = function(weight, diameter){
 		this.display = coinValue;
 	} else if (coinValue && (typeof this.display === 'number')){
 		this.display += coinValue;
+	} else {
+		return 'send coin to coin return';
 	}
 };
 

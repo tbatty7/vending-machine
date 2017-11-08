@@ -5,10 +5,10 @@ describe('Vending Machine Coding Kata', ()=>{
 		const vendingMachine = require('./vendingMachine');
 
 		describe('Vending Machine Display Tests', ()=>{
-			it('should display "Insert Coin" as the default setting', ()=>{
+			it('should display "INSERT COIN" as the default setting', ()=>{
 				expect(vendingMachine.display).to.equal('INSERT COIN');
 			});
-			
+
 		});
 
 		describe('coinIdentifier() Functionality Tests', ()=>{
@@ -41,6 +41,9 @@ describe('Vending Machine Coding Kata', ()=>{
 				expect(vendingMachine.display).to.equal(40);
 			});
 
+			it('should return "send coin to coin return" when coin is invalid', ()=>{
+				expect(vendingMachine.coinHandler(2.5, 0.75)).to.equal('send coin to coin return');
+			});
 		});
 	});
 });
