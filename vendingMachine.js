@@ -1,9 +1,9 @@
 var VendingMachine = function(){
-	this.display = 'Insert Coin';
+	this.display = 'INSERT COIN';
 };
 
 VendingMachine.prototype.resetDisplay = function(){
-	return "Insert Coin";
+	this.display = "INSERT COIN";
 };
 
 VendingMachine.prototype.coinIdentifier = function(weight, diameter){
@@ -20,7 +20,9 @@ VendingMachine.prototype.coinHandler = function(weight, diameter){
 	var coinValue = this.coinIdentifier(weight, diameter);
 	if (coinValue && (typeof this.display === 'string')){
 		this.display = coinValue;
-	} 
+	} else if (coinValue && (typeof this.display === 'number')){
+		this.display += coinValue;
+	}
 };
 
 

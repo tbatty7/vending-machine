@@ -6,8 +6,9 @@ describe('Vending Machine Coding Kata', ()=>{
 
 		describe('Vending Machine Display Tests', ()=>{
 			it('should display "Insert Coin" as the default setting', ()=>{
-				expect(vendingMachine.resetDisplay()).to.equal('Insert Coin');
+				expect(vendingMachine.display).to.equal('INSERT COIN');
 			});
+			
 		});
 
 		describe('coinIdentifier() Functionality Tests', ()=>{
@@ -25,9 +26,21 @@ describe('Vending Machine Coding Kata', ()=>{
 
 		describe('coinHandler() Functionality Tests', ()=>{
 			it('should update display with new value based on amount of each coin', ()=>{
+				vendingMachine.resetDisplay();
 				vendingMachine.coinHandler(5, 0.835);
 				expect(vendingMachine.display).to.equal(5);
 			});
+			
+			it('should update display with new total based on amount of each consecutive coin', ()=>{
+				vendingMachine.resetDisplay();
+				vendingMachine.coinHandler(5, 0.835);
+				expect(vendingMachine.display).to.equal(5);
+				vendingMachine.coinHandler(2.268, 0.705);
+				expect(vendingMachine.display).to.equal(15);
+				vendingMachine.coinHandler(5.67, 0.955);
+				expect(vendingMachine.display).to.equal(40);
+			});
+
 		});
 	});
 });
