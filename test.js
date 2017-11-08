@@ -61,8 +61,8 @@ describe('Vending Machine Coding Kata', ()=>{
 				expect(vendingMachine.products).to.be.an('object');
 			});
 
-			it('should return the amount when the selectProduct() button is pressed', ()=>{
-				expect(vendingMachine.selectProduct("cola")).to.equal(1.00);
+			it('should return the amount when the getProductCost() button is pressed', ()=>{
+				expect(vendingMachine.getProductCost("cola")).to.equal(1.00);
 			})
 		});
 	});

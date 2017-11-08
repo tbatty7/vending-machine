@@ -34,7 +34,7 @@ VendingMachine.prototype.coinVerifier = function(weight, diameter){
 	}
 };
 
-VendingMachine.prototype.selectProduct = function(product){
+VendingMachine.prototype.getProductCost = function(product){
 	return this.products[product];
 };
 
