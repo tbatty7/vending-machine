@@ -27,10 +27,11 @@ describe('Vending Machine Coding Kata', ()=>{
 			it('should return undefined when pennies or any other coin is inserted', ()=>{
 				expect(vendingMachine.coinIdentifier(2.5, 0.75)).to.be.undefined;
 				expect(vendingMachine.coinIdentifier(5, 0.22)).to.be.undefined;
+				expect(vendingMachine.coinIdentifier("Roger", true)).to.be.undefined;
 			});
 		});
 
-		describe('coinHandler() Functionality Tests', ()=>{
+		describe('coinVerifier() Functionality Tests', ()=>{
 			it('should update display with new value based on amount of each coin', ()=>{
 				vendingMachine.resetDisplay();
 				vendingMachine.coinVerifier(5, 0.835);
@@ -49,6 +50,8 @@ describe('Vending Machine Coding Kata', ()=>{
 
 			it('should return "send coin to coin return" when coin is invalid', ()=>{
 				expect(vendingMachine.coinVerifier(2.5, 0.75)).to.equal('send coin to coin return');
+				expect(vendingMachine.coinVerifier("Roger", true)).to.equal('send coin to coin return');
+
 			});
 		});
 	});
