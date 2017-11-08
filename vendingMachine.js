@@ -1,10 +1,11 @@
 var VendingMachine = function(){
 	this.display = 'INSERT COIN';
-	this.products = [
-	{"product": "cola", "price": 100},
-	{"product": "chips", "price": 50},
-	{"product": "candy", "price": 65}
-	];
+	this.products = {
+		"cola": 1.00,
+		"chips": 0.50,
+		"candy": 0.65
+	};
+
 };
 
 VendingMachine.prototype.resetDisplay = function(){
@@ -31,6 +32,10 @@ VendingMachine.prototype.coinVerifier = function(weight, diameter){
 	} else {
 		return 'send coin to coin return';
 	}
+};
+
+VendingMachine.prototype.selectProduct = function(product){
+	return this.products[product];
 };
 
 
