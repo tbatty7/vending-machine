@@ -19,9 +19,9 @@ describe('Vending Machine Coding Kata', ()=>{
 
 		describe('coinIdentifier() Functionality Tests', ()=>{
 			it('should return the value of nickels, dimes and quarters', ()=>{
-				expect(vendingMachine.coinIdentifier(5, 0.835)).to.equal(0.05);
-				expect(vendingMachine.coinIdentifier(2.268, 0.705)).to.equal(0.10);
-				expect(vendingMachine.coinIdentifier(5.67, 0.955)).to.equal(0.25);
+				expect(vendingMachine.coinIdentifier(5, 0.835)).to.equal(5);
+				expect(vendingMachine.coinIdentifier(2.268, 0.705)).to.equal(10);
+				expect(vendingMachine.coinIdentifier(5.67, 0.955)).to.equal(25);
 			});
 
 			it('should return undefined when pennies or any other coin is inserted', ()=>{
@@ -35,18 +35,18 @@ describe('Vending Machine Coding Kata', ()=>{
 			it('should update display with new value based on amount of each coin', ()=>{
 				vendingMachine.resetDisplay();
 				vendingMachine.coinVerifier(5, 0.835);
-				expect(vendingMachine.display).to.equal(0.05);
+				expect(vendingMachine.display).to.equal(5);
 			});
 			
 			it('should update display with new total based on amount of each consecutive coin', ()=>{
 				vendingMachine.resetDisplay();
 				vendingMachine.coinVerifier(5, 0.835);
-				expect(vendingMachine.display).to.equal(0.05);
+				expect(vendingMachine.display).to.equal(5);
 				expect(vendingMachine.display).to.be.an('number');
 				vendingMachine.coinVerifier(2.268, 0.705);
-				expect(vendingMachine.display).to.equal(0.15);
+				expect(vendingMachine.display).to.equal(15);
 				vendingMachine.coinVerifier(5.67, 0.955);
-				expect(vendingMachine.display).to.equal(0.40);
+				expect(vendingMachine.display).to.equal(40);
 			});
 
 			it('should return "send coin to coin return" when coin is invalid', ()=>{
@@ -62,7 +62,7 @@ describe('Vending Machine Coding Kata', ()=>{
 			});
 
 			it('should return the amount when the getProductCost() button is pressed', ()=>{
-				expect(vendingMachine.getProductCost("cola")).to.equal(1.00);
+				expect(vendingMachine.getProductCost("cola")).to.equal(100);
 			})
 		});
 	});
