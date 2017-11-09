@@ -1,5 +1,6 @@
 var VendingMachine = function(){
 	this.display = 'INSERT COIN';
+	this.total = 0;
 	this.products = {
 		"cola": 100,
 		"chips": 50,
@@ -8,8 +9,9 @@ var VendingMachine = function(){
 
 };
 
-VendingMachine.prototype.resetDisplay = function(){
+VendingMachine.prototype.reset = function(){
 	this.display = "INSERT COIN";
+	this.total = 0;
 };
 
 VendingMachine.prototype.coinIdentifier = function(weight, diameter){
@@ -24,14 +26,17 @@ VendingMachine.prototype.coinIdentifier = function(weight, diameter){
 
 VendingMachine.prototype.coinVerifier = function(weight, diameter){
 	var coinValue = this.coinIdentifier(weight, diameter);
-	if (coinValue && (this.display === 'INSERT COIN')){ // I need to change it so there is a this.total property for the math that then is converted to a decimal when displayed.
-		this.display = coinValue;
-	} else if (coinValue && (typeof this.display === 'number')){
-		this.display += coinValue;
-		// this.display = parseFloat(this.display.toFixed(2));
+
+	if (coinValue){
+		this.total += coinValue;
+		this.updateDisplay();
 	} else {
 		return 'send coin to coin return';
 	}
+};
+
+VendingMachine.prototype.updateDisplay = function(){
+		this.display = this.total; // convert to look like money
 };
 
 VendingMachine.prototype.getProductCost = function(product){

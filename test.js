@@ -9,9 +9,9 @@ describe('Vending Machine Coding Kata', ()=>{
 				expect(vendingMachine.display).to.equal('INSERT COIN');
 			});
 
-			it('should reset display to "INSERT COIN" when resetDisplay() is called', ()=>{
+			it('should reset display to "INSERT COIN" when reset() is called', ()=>{
 				vendingMachine.coinVerifier(5, 0.835);
-				vendingMachine.resetDisplay();
+				vendingMachine.reset();
 				expect(vendingMachine.display).to.equal('INSERT COIN');
 			})
 
@@ -33,13 +33,13 @@ describe('Vending Machine Coding Kata', ()=>{
 
 		describe('coinVerifier() Functionality Tests', ()=>{
 			it('should update display with new value based on amount of each coin', ()=>{
-				vendingMachine.resetDisplay();
+				vendingMachine.reset();
 				vendingMachine.coinVerifier(5, 0.835);
 				expect(vendingMachine.display).to.equal(5);
 			});
 			
 			it('should update display with new total based on amount of each consecutive coin', ()=>{
-				vendingMachine.resetDisplay();
+				vendingMachine.reset();
 				vendingMachine.coinVerifier(5, 0.835);
 				expect(vendingMachine.display).to.equal(5);
 				expect(vendingMachine.display).to.be.an('number');
